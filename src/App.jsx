@@ -1,6 +1,6 @@
 import PokemonCard from './components/PokemonCard'
 import { useState } from "react";
-import { number } from 'prop-types';
+import './App.css'
 
 const pokemonList = [
     {
