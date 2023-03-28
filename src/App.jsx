@@ -38,14 +38,15 @@ function App() {
 
   }
 
-  return (
+  return (<>
     <div>
       <PokemonCard pokemon={pokemonList[count]} />
       <button onClick={precedente}>précédente</button>
       <button onClick={suivant}>suivant</button>
       <br/><p>{count+1}/{pokemonList.length}</p>
     </div>
-  )
+  </>)
 }
+{alert("hello pokemon trainer :)")}
 
 export default App
