@@ -1,8 +1,7 @@
 import PokemonCard from './components/PokemonCard'
 import { useState } from "react";
 
-function App() {
-  const pokemonList = [
+const pokemonList = [
     {
       name: "bulbasaur",
       imgSrc:
@@ -27,26 +26,31 @@ function App() {
       name: "mew",
     },
   ];
-
+function App() {
+  
   const [count, setCount] = useState(0);
-
-  const suivant = () => {
-    if (count < pokemonList.length-1) { setCount(count + 1) }
-  }
-  const precedente = () => {
-    if (count > 0) { setCount(count - 1) }
-
-  }
-
+  if(count===3){alert("pika pikachu !!!")}
+  
   return (<>
     <div>
+      <NavBar count={count} setCount={setCount}/>
       <PokemonCard pokemon={pokemonList[count]} />
-      <button onClick={precedente}>précédente</button>
-      <button onClick={suivant}>suivant</button>
-      <br/><p>{count+1}/{pokemonList.length}</p>
     </div>
   </>)
 }
-{alert("hello pokemon trainer :)")}
 
+function NavBar(props) {
+  const suivant = () => {
+    if (props.count < pokemonList.length - 1) { props.setCount(props.count + 1) }
+  }
+  const precedente = () => {
+    if (props.count > 0) { props.setCount(props.count - 1) }
+  }
+  return (<>
+      <button onClick={precedente}>précédente</button>
+      <button onClick={suivant}>suivant</button>
+      <br /><p>{props.count + 1}/{pokemonList.length}</p>
+  </>);
+}
+{alert("hello pokemon trainer :)")}
 export default App
