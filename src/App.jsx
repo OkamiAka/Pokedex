@@ -1,5 +1,6 @@
 import PokemonCard from './components/PokemonCard'
 import { useState } from "react";
+import { number } from 'prop-types';
 
 const pokemonList = [
     {
@@ -35,24 +36,17 @@ function App() {
 
   return (
     <div>
-      <NavBar count={count} setCount={setCount}/>
+      <NavBar setCount={setCount}/>
       <PokemonCard pokemon={pokemonList[count]} />
     </div>
   )
 }
 
 function NavBar(props) {
-  const suivant = () => {
-    if (props.count < pokemonList.length - 1) { props.setCount(props.count + 1) }
-  }
-  const precedente = () => {
-    if (props.count > 0) { props.setCount(props.count - 1) }
-
-  }
   return (<>
-      <button onClick={precedente}>précédente</button>
-      <button onClick={suivant}>suivant</button>
-      <br /><p>{props.count + 1}/{pokemonList.length}</p>
+      {pokemonList.map((pokemon, index) => (
+        <button onClick={() => { props.setCount(index) }} key={pokemon.name}>{pokemon.name}</button>
+      ))}
   </>);
 
 }
