@@ -4,7 +4,7 @@ function App() {
 
   return (
     <div>
-      <PokemonCard name={pokemonList[0].name} imgSrc={pokemonList[0].imgSrc}/>
+      <PokemonCard pokemon={pokemonList[0]}/>
     </div>
   )
 }

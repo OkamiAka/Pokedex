@@ -1,5 +1,4 @@
-function PokemonCard(props) {
-    const pokemon = props
+function PokemonCard({pokemon}) {
     return (
         <div>
             <figure>
